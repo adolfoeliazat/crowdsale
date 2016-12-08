@@ -1,32 +1,30 @@
 buildscript {
-	ext {
-		springBootVersion = '1.4.1.RELEASE'
+	dependencies {
+		classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE'
 	}
 	repositories {
+		mavenLocal()
 		mavenCentral()
 	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+}
+
+allprojects {
+	group = 'io.fundrequest'
+}
+
+subprojects {
+	group= 'io.fundrequest'
+	apply plugin: 'maven'
+
+	task createPom  {
+		pom {
+			project {
+			}
+		}.writeTo("$buildDir/${project.name}-${project.version}.pom")
 	}
 }
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'spring-boot'
 
-jar {
-	baseName = 'crowdsale'
-	version = '0.0.1-SNAPSHOT'
-}
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
-repositories {
-	mavenCentral()
-}
-
-
-dependencies {
-	compile('org.springframework.boot:spring-boot-starter-web')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+task wrapper(type: Wrapper) {
+	gradleVersion = '2.13'
 }
