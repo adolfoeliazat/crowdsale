@@ -30,3 +30,5 @@ gradle/
 #intellij
 .idea
 *.iml
+
+**/WEB-INF/static
