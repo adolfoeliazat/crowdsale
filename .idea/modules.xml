@@ -3,9 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/crowdsale.iml" filepath="$PROJECT_DIR$/.idea/modules/crowdsale.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/web/web.iml" filepath="$PROJECT_DIR$/.idea/modules/web/web.iml" group="web" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/web/web_main.iml" filepath="$PROJECT_DIR$/.idea/modules/web/web_main.iml" group="web" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/web/web_test.iml" filepath="$PROJECT_DIR$/.idea/modules/web/web_test.iml" group="web" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/crowdsale_main.iml" filepath="$PROJECT_DIR$/.idea/modules/crowdsale_main.iml" group="crowdsale" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/crowdsale_test.iml" filepath="$PROJECT_DIR$/.idea/modules/crowdsale_test.iml" group="crowdsale" />
     </modules>
   </component>
 </project>
