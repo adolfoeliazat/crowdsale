@@ -1,6 +1,8 @@
 buildscript {
 	dependencies {
 		classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE'
+		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.5")
+		classpath 'se.transmode.gradle:gradle-docker:1.2'
 	}
 	repositories {
 		mavenLocal()
@@ -9,9 +11,10 @@ buildscript {
 }
 
 apply {
-	plugin('java')
+	plugin('kotlin')
 	plugin('idea')
 	plugin('org.springframework.boot')
+	plugin('docker')
 }
 
 repositories {
@@ -25,7 +28,38 @@ dependencies {
 	compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	compile 'org.springframework.boot:spring-boot-starter-actuator'
 
+	compile("org.jetbrains.kotlin:kotlin-stdlib:1.0.5")
 
 	compile 'org.springframework.boot:spring-boot-starter-test'
 	testCompile 'junit:junit:4.12'
+
+	compile "org.springframework.boot:spring-boot-devtools"
+}
+
+bootRun {
+	systemProperties System.properties
+	addResources = true
+}
+
+springBoot {
+	executable = true
+}
+
+jar {
+	baseName = 'crowdsale'
+	version = null
+}
+
+task buildDocker(type: Docker, dependsOn: build) {
+	push = false
+	applicationName = 'crowdsale'
+	tagVersion = 'latest'
+	project.group = 'qkyrie'
+	dockerfile = file('src/main/docker/Dockerfile')
+	doFirst {
+		copy {
+			from jar
+			into stageDir
+		}
+	}
 }
