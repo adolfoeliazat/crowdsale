@@ -5,8 +5,8 @@ Crowdsale
 
 ###Build Information
 
-Travis: [![Travis](https://travis-ci.org/FundRequest/crowdsale.svg?branch=master)]
-Sputnik: [![Sputnik](https://sputnik.ci/conf/badge)](https://sputnik.ci/app#/builds/FundRequest/crowdsale)
+- Travis: [![Travis]](https://travis-ci.org/FundRequest/crowdsale.svg?branch=master)
+- Sputnik: [![Sputnik]](https://sputnik.ci/app#/builds/FundRequest/crowdsale)
 
 ###Architecture
 The crowdsale application will be a simple spring boot architecture with a thymeleaf frontend.
